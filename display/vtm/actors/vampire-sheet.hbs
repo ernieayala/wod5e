@@ -1,45 +1,80 @@
 <form class="{{cssClass}} flexcol {{#if locked}}locked{{/if}} vampire-sheet" autocomplete="off">
-  {{#if displayBanner}}
-  <div class="sheet-banner">
-    <h1>{{localize "WOD5E.VTM.Label"}}</h1>
-  </div>
-  {{/if}}
-
   {{!-- Vampire Sheet Header --}}
   <header class="actor-header">
       <div class="header-fields-top">
-        <div class="header-profile-img">
-            {{!-- Actor image and sheet lock toggle button --}}
-            {{> "systems/vtm5e/display/shared/actors/parts/profile-img.hbs"}}
-        </div>
         <div class="header-rows-top">
             <div class="header-row-1">
-                {{!-- Text input header fields --}}
-                <h1 class="charname"><input class="no-border" name="name" type="text" value="{{actor.name}}"
-                  placeholder="{{localize 'WOD5E.Name'}}" /></h1>
-                  
-                <h1 class="charname"><input class="no-border" name="system.clan.value" type="text" value="{{actor.system.clan.value}}"
-                  placeholder="{{localize 'WOD5E.VTM.Clan'}}" /></h1>
+                <div class="flexcol">
+                  {{> "systems/vtm5e/display/shared/actors/parts/profile-img.hbs"}}
+                </div>
+                <div class="flexcol">
+                  <h1 class="charname">
+                    <input
+                      class="no-border"
+                      name="name"
+                      type="text"
+                      value="{{actor.name}}"
+                      placeholder="{{localize 'WOD5E.Name'}}" />
+                    <span>{{actor.name}}</span>
+                  </h1>
 
-                <h1 class="charname"><input class="no-border" name="system.headers.predator" type="text" value="{{actor.system.headers.predator}}"
-                  placeholder="{{localize 'WOD5E.VTM.Predator'}}" /></h1>
+                  <div class="header-info-group">
+                    <input
+                      class="no-border"
+                      name="system.clan.value"
+                      type="text"
+                      value="{{actor.system.clan.value}}"
+                      placeholder="{{localize 'WOD5E.VTM.Clan'}}" />
+                    <input
+                      class="no-border"
+                      name="system.headers.generation"
+                      type="text"
+                      value="{{actor.system.headers.generation}}"
+                      placeholder="{{localize 'WOD5E.VTM.Generation'}}" />
+                    <input
+                      class="no-border"
+                      name="system.headers.predator"
+                      type="text"
+                      value="{{actor.system.headers.predator}}"
+                      placeholder="{{localize 'WOD5E.VTM.Predator'}}" />
+                    <span>{{actor.system.clan.value}}</span>
+                    <span>&#8226;</span>
+                    <span>{{actor.system.headers.generation}}</span>
+                    <span>&#8226;</span>
+                    <span>{{actor.system.headers.predator}}</span>
+                  </div>
+                </div>
+                <div class="flexrow header-elements">
+                  {{> "systems/vtm5e/display/vtm/actors/parts/rouse.hbs"}}
+                  {{> "systems/vtm5e/display/vtm/actors/parts/frenzy.hbs"}}
+                  {{> "systems/vtm5e/display/shared/actors/parts/exp.hbs"}}
+                </div>
             </div>
             <div class="header-row-2">
-                {{!-- Health Tracker --}}
-                {{> "systems/vtm5e/display/shared/actors/parts/health.hbs"}}
+                <div class="flexcol">
+                  {{> "systems/vtm5e/display/shared/actors/parts/health.hbs"}}
+                  {{> "systems/vtm5e/display/shared/actors/parts/willpower.hbs"}}
+                </div>
+                <div class="flexcol">
+                  {{> "systems/vtm5e/display/vtm/actors/parts/humanity.hbs"}}
+                  {{> "systems/vtm5e/display/vtm/actors/parts/hunger.hbs"}}
+                </div>
 
-                {{!-- Willpower Tracker --}}
-                {{> "systems/vtm5e/display/shared/actors/parts/willpower.hbs"}}
-
-                {{!-- XP Tracker --}}
-                {{> "systems/vtm5e/display/shared/actors/parts/exp.hbs"}}
-
-                {{!-- Anything more that needs to be in the header spot --}}
-                {{> "systems/vtm5e/display/vtm/actors/parts/hunger.hbs"}}
-
-                {{> "systems/vtm5e/display/vtm/actors/parts/rouse.hbs"}}
-
-                {{> "systems/vtm5e/display/vtm/actors/parts/frenzy.hbs"}}
+                <div class="flexcol">
+                  <div class="resource flex-group-center blood-potency">
+                      <label class="resource-label">{{localize "WOD5E.VTM.BloodPotency"}}</label>
+                      <div class="resource-value" data-value="{{actor.system.blood.potency}}" data-name="system.blood.potency">
+                          <span class="resource-value-empty"></span>
+                          {{#numLoop 5}}
+                          <span class="resource-value-step" data-index="{{this}}"></span>
+                          {{/numLoop}}
+                      </div>
+                  </div>
+                  <div class="resource flex-group-center blood-resonance">
+                      <label class="resource-label">{{localize "WOD5E.VTM.BloodResonance"}}</label>
+                      <input type="text" name="system.blood.resonance" value="{{actor.system.blood.resonance}}" placeholder="{{localize 'WOD5E.VTM.BloodResonance'}}" />
+                  </div>
+                </div>
             </div>
         </div>
     </div>

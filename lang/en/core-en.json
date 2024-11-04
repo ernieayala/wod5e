@@ -60,6 +60,11 @@
     "None": "None",
     "OpenSheet": "Open sheet",
     "RemoveFromGroup": "Remove from group",
+    "Roll": "Roll",
+    "End": "End",
+    "Merits": "Merits",
+    "Boons": "Boons",
+    "Backgrounds": "Backgrounds",
     "Save": "Save",
     "Submit": "Submit",
     "System": "System",
@@ -102,6 +107,8 @@
       "Desire": "Desire",
       "History": "History",
       "Label": "Biography",
+      "Details": "Details",
+      "Beliefs": "Beliefs",
       "PersonalInformation": "Personal Information",
       "Touchstones": "Touchstones",
       "TouchstonesAndConvictions": "Touchstones & Convictions"
@@ -395,7 +402,7 @@
       "Traits": "Traits"
     },
     "Tabs": {
-      "Biography": "Biography",
+      "Biography": "Concept & Lore",
       "Description": "Description",
       "Dicepool": "Dicepool",
       "Equipment": "Equipment",
@@ -409,9 +416,10 @@
       "PrivateNotes": "Private Notes",
       "PublicNotes": "Public Notes",
       "Settings": "Settings",
-      "Stats": "Stats",
+      "Stats": "Attributes & Skills",
       "StorytellerNotes": "Storyteller Notes",
-      "TokenSettings": "Token Settings"
+      "TokenSettings": "Token Settings",
+      "MeritsFlaws": "Merits & Flaws"
     }
   }
 }

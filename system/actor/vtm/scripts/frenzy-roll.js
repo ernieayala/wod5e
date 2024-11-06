@@ -47,7 +47,7 @@ export const _onFrenzyRoll = async function (event) {
 
           await renderTemplate('systems/vtm5e/display/ui/chat/chat-message.hbs', {
             name: game.i18n.localize('WOD5E.VTM.ResistingFrenzyFailed'),
-            img: 'systems/vtm5e/assets/icons/dice/vampire/bestial-failure.png',
+            img: 'systems/vtm5e/assets/icons/dice/vampire/hunger-1-roll.png',
             description: game.i18n.format('WOD5E.VTM.ResistingFrenzyFailedDescription', {
               actor: actor.name
             })
@@ -58,7 +58,7 @@ export const _onFrenzyRoll = async function (event) {
         } else {
           await renderTemplate('systems/vtm5e/display/ui/chat/chat-message.hbs', {
             name: game.i18n.localize('WOD5E.VTM.ResistingFrenzySuccess'),
-            img: 'systems/vtm5e/assets/icons/dice/vampire/bestial-failure.png',
+            img: 'systems/vtm5e/assets/icons/dice/vampire/hunger-1-roll.png',
             description: game.i18n.format('WOD5E.VTM.ResistingFrenzySuccessDescription', {
               actor: actor.name
             })
@@ -75,7 +75,7 @@ export const _onFrenzyRoll = async function (event) {
 
     await renderTemplate('systems/vtm5e/display/ui/chat/chat-message.hbs', {
       name: game.i18n.localize('WOD5E.VTM.RidingTheWave'),
-      img: 'systems/vtm5e/assets/icons/dice/vampire/bestial-failure.png',
+      img: 'systems/vtm5e/assets/icons/dice/vampire/hunger-1-roll.png',
       description: game.i18n.format('WOD5E.VTM.RidingTheWaveDescription', {
         actor: actor.name
       })

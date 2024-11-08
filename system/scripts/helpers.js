@@ -156,4 +156,8 @@ export const loadHelpers = async function () {
   Handlebars.registerHelper('json', function(context) {
     return JSON.stringify(context, null, 2); // Pretty-prints with 2-space indentation
   })
+
+  Handlebars.registerHelper('decrement', function(value) {
+    return Math.max(value - 1, 1);
+  });
 }

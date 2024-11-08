@@ -109,6 +109,11 @@ export class VampireActorSheet extends HandlebarsApplicationMixin(WoDActor) {
       id: 'notepad',
       group: 'primary',
       title: 'WOD5E.Tabs.Notes'
+    },
+    settings: {
+      id: 'settings',
+      group: 'primary',
+      title: 'WOD5E.Tabs.Settings'
     }
   }
 

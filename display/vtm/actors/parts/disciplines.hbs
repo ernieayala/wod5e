@@ -1,10 +1,12 @@
-<section class="tab {{tab.cssClass}}" data-tab="{{tab.id}}" data-group="{{tab.group}}">
+<section class="tab {{tab.cssClass}}"
+    data-tab="{{tab.id}}"
+    data-group="{{tab.group}}">
     <div class="flexcol">
         <div class="items-list">
             {{#each disciplines as |discipline key|}}
                 {{#if discipline.visible}}
-                    <span class="item-header">
-                        <a class="item-name"
+                    <div class="item-header">
+                        <a class="item-name system-rollable -red"
                             data-action="roll"
                             title="{{localize 'WOD5E.RollList.Label'}}"
                             data-value-paths="disciplines.{{key}}.value"
@@ -45,7 +47,7 @@
                                 </a>
                             {{/if}}
                         </div>
-                    </span>
+                    </div>
                     <div class="items-list">
                         {{#each discipline.powers as |power key|}}
                             <div class="item">

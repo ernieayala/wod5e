@@ -1,6 +1,6 @@
 <section class="tab {{tab.cssClass}}"
-data-tab="{{tab.id}}"
-data-group="{{tab.group}}">
+    data-tab="{{tab.id}}"
+    data-group="{{tab.group}}">
     <div class="skills-attributes">
         <div class="resource-label-fancy">
             <hr/ >
@@ -79,7 +79,7 @@ data-group="{{tab.group}}">
             </div>
             <div class="flexrow stats-content">
                 {{#each sortedSkills as |type key|}}
-                    <div class="skills stats-list">
+                    <div class="stats-list skills">
                         {{#each type as |skill key|}}
                             <div class="flexrow skill">
                                 <a class="edit-skill"
@@ -156,7 +156,7 @@ data-group="{{tab.group}}">
                             data-item-id="{{condition.id}}"
                             data-document-uuid="{{condition.uuid}}"
                             data-type="Item">
-                            <div class="item-name system-rollable -red"
+                            <div class="item-name system-hover -red"
                                 data-action="itemChat"
                                 data-item-id="{{condition._id}}">
                                 {{condition.name}}
@@ -204,7 +204,7 @@ data-group="{{tab.group}}">
                                 data-item-id="{{roll.id}}"
                                 data-document-uuid="{{roll.uuid}}"
                                 data-type="Item">
-                                <div class="item-name system-rollable -red"
+                                <div class="item-name system-hover -red"
                                     data-action="rollItem"
                                     data-item-uuid="{{roll.uuid}}">
                                     {{roll.name}}

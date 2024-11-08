@@ -14,7 +14,7 @@ export const _onEditExceptionalPools = async function (event) {
   for (const [key, value] of Object.entries(actor.system.exceptionaldicepools)) {
     const checkedStatus = value.active ? ' checked' : ''
 
-    options = options.concat(`<div class="flexrow exceptional-pool" data-id="${key}">
+    options = options.concat(`<div class="flexrow -gap-base" data-id="${key}">
       ${value.displayName}
       <input type="checkbox" class="exceptional-checkbox"${checkedStatus}>
     </div>`)
@@ -22,10 +22,8 @@ export const _onEditExceptionalPools = async function (event) {
 
   // Define the template to be used
   const template = `
-    <form>
-        <div class="form-group grid grid-3col">
-            ${options}
-        </div>
+    <form class="form-group flexcol -gap-base">
+      ${options}
     </form>`
 
   // Define any buttons needed and add them to the buttons variable

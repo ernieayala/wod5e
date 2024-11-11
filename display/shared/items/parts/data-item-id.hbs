@@ -1,11 +1,15 @@
-<div class="flex-group-center flexrow">
-    <div class="field-header flexrow">
+<div class="form-group">
+    <label>
         {{localize 'WOD5E.ItemsList.DataItemId'}}
-        <a data-action="formatDataId" title="{{localize 'WOD5E.ItemsList.GenerateDataItemID'}}">
+        <a
+            data-action="formatDataId"
+            title="{{localize 'WOD5E.ItemsList.GenerateDataItemID'}}">
             <i class="fa-solid fa-arrows-rotate"></i>
         </a>
-    </div>
-    <div>
-        <input type="text" value="{{dataItemId}}" disabled/>
+    </label>
+    <div class="form-fields">
+        <input
+            type="text"
+            value="{{dataItemId}}" disabled/>
     </div>
 </div>

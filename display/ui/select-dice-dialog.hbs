@@ -25,22 +25,31 @@
             </select>
           </div>
         {{else if attribute}}
-          <div class="selector-title">
-            {{localize "WOD5E.AttributesList.Label"}}
-          </div>
-          <div class="selector-content">
-            <select id="attributeSelect2">
-                <option value="">{{localize "WOD5E.None"}}</option>
-                {{selectOptions attributeOptions selected=attribute2}}
-            </select>
-          </div>
+          {{#if shiftPressed}}
+            <div class="selector-title">
+              {{localize "WOD5E.AttributesList.Label"}}
+            </div>
+            <div class="selector-content">
+              <select id="attributeSelect2">
+                  <option value="">{{localize "WOD5E.None"}}</option>
+                  {{selectOptions attributeOptions selected=attribute2}}
+              </select>
+            </div>
+          {{else}}
+            <div class="selector-title">
+              {{localize "WOD5E.SkillsList.Label"}}
+            </div>
+            <div class="selector-content">
+              <select id="skillSelect">
+                  <option value="">{{localize "WOD5E.None"}}</option>
+                  {{selectOptions skillOptions selected=skill}}
+              </select>
+            </div>
+          {{/if}}
         {{/if}}
       </div>
     {{/unless}}
-
     <div class="middle">+</div>
-
-    <!-- Attribute selection -->
     <div class="flexcol -gap-base primary-selector">
         <div class="selector-title">
           {{localize "WOD5E.AttributesList.Label"}}

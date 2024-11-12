@@ -103,6 +103,8 @@ export class SPCActorSheet extends HandlebarsApplicationMixin(WoDActor) {
     this.options.classes.push(actorData.gamesystem)
 
     if (data.gamesystem === 'vampire') {
+      data.sire = actorData.headers.sire
+      data.generation = actorData.headers.generation
       data.humanity = actorData.humanity
       data.hunger = actorData.hunger
       data.bloodpotency = Math.min(Math.max(actorData.blood.potency, 0), 10) // make sure Blood Potency doesn't go over 10 or under 0

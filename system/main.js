@@ -182,6 +182,15 @@ Hooks.once('ready', async function () {
       _updateCSSVariable(settingId, cssVariable, settingValue)
     })
   })
+
+  document.addEventListener('keydown', function(event) {
+  // Check if the event target is a text input field
+  if (event.target.tagName === 'INPUT' && event.target.type === 'text' && event.key === 'Enter') {
+      event.preventDefault(); // Prevent form submission or triggering other elements
+      event.target.blur(); // Temporarily removes focus
+      event.target.focus(); // Refocuses to make Enter act like a normal keystroke
+    }
+  });
 })
 
 Hooks.once('setup', () => {

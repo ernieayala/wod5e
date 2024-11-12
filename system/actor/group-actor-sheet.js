@@ -118,26 +118,22 @@ export class GroupActorSheet extends HandlebarsApplicationMixin(foundry.applicat
     features: {
       id: 'features',
       group: 'primary',
-      title: 'WOD5E.Tabs.Features',
-      icon: '<i class="fas fa-gem"></i>'
+      title: 'WOD5E.Tabs.MeritsFlaws'
     },
     equipment: {
       id: 'equipment',
       group: 'primary',
-      title: 'WOD5E.Tabs.Equipment',
-      icon: '<i class="fa-solid fa-toolbox"></i>'
+      title: 'WOD5E.Tabs.Equipment'
     },
     notepad: {
       id: 'notepad',
       group: 'primary',
-      title: 'WOD5E.Tabs.Notes',
-      icon: '<i class="fas fa-sticky-note"></i>'
+      title: 'WOD5E.Tabs.Notes'
     },
     settings: {
       id: 'settings',
       group: 'primary',
-      title: 'WOD5E.Tabs.Settings',
-      icon: '<i class="fa-solid fa-gears"></i>'
+      title: 'WOD5E.Tabs.Settings'
     }
   }
 

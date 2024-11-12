@@ -44,25 +44,7 @@ export const prepareFeaturesContext = async function (context, actor) {
   context.tab = context.tabs.features
 
   // Part-specific data
-  context.concept = actorHeaders.concept
-  context.chronicle = actorHeaders.chronicle
-  context.ambition = actorHeaders.ambition
-  context.desire = actorHeaders.desire
   context.features = actorData.features
-  context.tenets = actorHeaders.tenets
-  context.enrichedTenets = await TextEditor.enrichHTML(actorHeaders.tenets)
-  context.touchstones = actorHeaders.touchstones
-  context.enrichedTouchstones = await TextEditor.enrichHTML(actorHeaders.touchstones)
-  context.showAmbitionDesire = actorData.gamesystem !== 'werewolf' && actor.type !== 'group'
-
-  if (actorData.gamesystem === 'werewolf') {
-    const tribe = context.tribe
-
-    context.favor = tribe?.system?.patronSpirit?.favor || ''
-    context.enrichedFavor = await TextEditor.enrichHTML(context.favor)
-    context.ban = tribe?.system?.patronSpirit?.ban || ''
-    context.enrichedBan = await TextEditor.enrichHTML(context.ban)
-  }
 
   return context
 }
@@ -83,6 +65,7 @@ export const prepareEquipmentContext = async function (context, actor) {
 
 export const prepareBiographyContext = async function (context, actor) {
   const actorData = actor.system
+  const actorHeaders = actorData.headers
 
   // Tab data
   context.tab = context.tabs.biography
@@ -93,6 +76,24 @@ export const prepareBiographyContext = async function (context, actor) {
   context.enrichedBiography = await TextEditor.enrichHTML(actorData.biography)
   context.appearance = actorData.appearance
   context.enrichedAppearance = await TextEditor.enrichHTML(actorData.appearance)
+  context.concept = actorHeaders.concept
+  context.chronicle = actorHeaders.chronicle
+  context.ambition = actorHeaders.ambition
+  context.desire = actorHeaders.desire
+  context.tenets = actorHeaders.tenets
+  context.enrichedTenets = await TextEditor.enrichHTML(actorHeaders.tenets)
+  context.touchstones = actorHeaders.touchstones
+  context.enrichedTouchstones = await TextEditor.enrichHTML(actorHeaders.touchstones)
+  context.showAmbitionDesire = actorData.gamesystem !== 'werewolf' && actor.type !== 'group'
+
+  if (actorData.gamesystem === 'werewolf') {
+    const tribe = context.tribe
+
+    context.favor = tribe?.system?.patronSpirit?.favor || ''
+    context.enrichedFavor = await TextEditor.enrichHTML(context.favor)
+    context.ban = tribe?.system?.patronSpirit?.ban || ''
+    context.enrichedBan = await TextEditor.enrichHTML(context.ban)
+  }
 
   return context
 }

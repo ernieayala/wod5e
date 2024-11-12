@@ -1,0 +1,16 @@
+<div class="resource blood-potency">
+    <label class="resource-label">
+        {{localize "WOD5E.VTM.BloodPotency"}}
+    </label>
+    <div class="resource-value"
+        data-value="{{blood.potency}}"
+        data-name="system.blood.potency">
+        <span class="resource-value-empty"
+            data-action="dotCounterEmpty"></span>
+        {{#numLoop 5}}
+            <span class="resource-value-step"
+                data-action="dotCounterChange"
+                data-index="{{this}}"></span>
+        {{/numLoop}}
+    </div>
+</div>

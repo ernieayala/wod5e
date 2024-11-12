@@ -78,56 +78,42 @@ export class VampireActorSheet extends HandlebarsApplicationMixin(WoDActor) {
     stats: {
       id: 'stats',
       group: 'primary',
-      title: 'WOD5E.Tabs.Stats',
-      icon: '<i class="fa-regular fa-chart-line"></i>'
-    },
-    experience: {
-      id: 'experience',
-      group: 'primary',
-      title: 'WOD5E.Tabs.Experience',
-      icon: '<i class="fa-solid fa-file-contract"></i>'
+      title: 'WOD5E.Tabs.Stats'
     },
     disciplines: {
       id: 'disciplines',
       group: 'primary',
-      title: 'WOD5E.VTM.Disciplines',
-      icon: '<span class="wod5e-symbol">b</span>'
-    },
-    blood: {
-      id: 'blood',
-      group: 'primary',
-      title: 'WOD5E.VTM.Blood',
-      icon: '<i class="fa-solid fa-droplet"></i>'
+      title: 'WOD5E.VTM.Disciplines'
     },
     features: {
       id: 'features',
       group: 'primary',
-      title: 'WOD5E.Tabs.Features',
-      icon: '<i class="fas fa-gem"></i>'
-    },
-    equipment: {
-      id: 'equipment',
-      group: 'primary',
-      title: 'WOD5E.Tabs.Equipment',
-      icon: '<i class="fa-solid fa-toolbox"></i>'
+      title: 'WOD5E.Tabs.MeritsFlaws'
     },
     biography: {
       id: 'biography',
       group: 'primary',
-      title: 'WOD5E.Tabs.Biography',
-      icon: '<i class="fas fa-id-card"></i>'
+      title: 'WOD5E.Tabs.Biography'
+    },
+    equipment: {
+      id: 'equipment',
+      group: 'primary',
+      title: 'WOD5E.Tabs.Equipment'
+    },
+    experience: {
+      id: 'experience',
+      group: 'primary',
+      title: 'WOD5E.Tabs.Experience'
     },
     notepad: {
       id: 'notepad',
       group: 'primary',
-      title: 'WOD5E.Tabs.Notes',
-      icon: '<i class="fas fa-sticky-note"></i>'
+      title: 'WOD5E.Tabs.Notes'
     },
     settings: {
       id: 'settings',
       group: 'primary',
-      title: 'WOD5E.Tabs.Settings',
-      icon: '<i class="fa-solid fa-gears"></i>'
+      title: 'WOD5E.Tabs.Settings'
     }
   }
 
@@ -139,6 +125,8 @@ export class VampireActorSheet extends HandlebarsApplicationMixin(WoDActor) {
 
     // Filters for item-specific data
     const clanFilter = actor.items.filter(item => item.type === 'clan')
+    const predatorFilter = actor.items.filter(item => item.type === 'predatorType')
+    const resonanceFilter = actor.items.filter(item => item.type === 'resonance')
 
     // Prepare vampire-specific items
     data.domitor = actorData.headers.domitor
@@ -146,6 +134,11 @@ export class VampireActorSheet extends HandlebarsApplicationMixin(WoDActor) {
     data.hunger = actorData.hunger
     data.clan = clanFilter[0]
     data.frenzyActive = actorData.frenzyActive
+    data.predator = predatorFilter[0]
+    data.generation = actorData.headers.generation
+    data.blood = actorData.blood
+    data.resonance = resonanceFilter[0]
+    data.sire = actorData.headers.sire
 
     return data
   }
@@ -171,7 +164,7 @@ export class VampireActorSheet extends HandlebarsApplicationMixin(WoDActor) {
       case 'disciplines':
         return prepareDisciplinesContext(context, actor)
 
-      // Disciplines
+      // Blood
       case 'blood':
         return prepareBloodContext(context, actor)
 

@@ -26,6 +26,8 @@ export const preloadHandlebarsTemplates = async function () {
     'systems/vtm5e/display/shared/actors/parts/chronicle-tenets.hbs',
     'systems/vtm5e/display/shared/actors/parts/touchstones-convictions.hbs',
     'systems/vtm5e/display/shared/actors/parts/experience.hbs',
+    'systems/vtm5e/display/shared/actors/parts/header-image.hbs',
+    'systems/vtm5e/display/shared/actors/parts/header-name.hbs',
     'systems/vtm5e/display/shared/actors/limited-sheet.hbs',
 
     // Hunter Sheet Partials
@@ -44,6 +46,9 @@ export const preloadHandlebarsTemplates = async function () {
     'systems/vtm5e/display/vtm/actors/parts/humanity.hbs',
     'systems/vtm5e/display/vtm/actors/parts/hunger.hbs',
     'systems/vtm5e/display/vtm/actors/parts/rouse.hbs',
+    'systems/vtm5e/display/vtm/actors/parts/details.hbs',
+    'systems/vtm5e/display/vtm/actors/parts/potency.hbs',
+    'systems/vtm5e/display/vtm/actors/parts/resonance.hbs',
 
     // Werewolf Sheet Partials
     'systems/vtm5e/display/wta/actors/parts/gifts-rites.hbs',

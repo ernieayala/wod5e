@@ -64,38 +64,32 @@ export class SPCActorSheet extends HandlebarsApplicationMixin(WoDActor) {
     stats: {
       id: 'stats',
       group: 'primary',
-      title: 'WOD5E.Tabs.Stats',
-      icon: '<i class="fa-regular fa-chart-line"></i>'
+      title: 'WOD5E.Tabs.Stats'
     },
     features: {
       id: 'features',
       group: 'primary',
-      title: 'WOD5E.Tabs.Features',
-      icon: '<i class="fas fa-gem"></i>'
-    },
-    equipment: {
-      id: 'equipment',
-      group: 'primary',
-      title: 'WOD5E.Tabs.Equipment',
-      icon: '<i class="fa-solid fa-toolbox"></i>'
+      title: 'WOD5E.Tabs.MeritsFlaws'
     },
     biography: {
       id: 'biography',
       group: 'primary',
-      title: 'WOD5E.Tabs.Biography',
-      icon: '<i class="fas fa-id-card"></i>'
+      title: 'WOD5E.Tabs.Biography'
+    },
+    equipment: {
+      id: 'equipment',
+      group: 'primary',
+      title: 'WOD5E.Tabs.Equipment'
     },
     notepad: {
       id: 'notepad',
       group: 'primary',
-      title: 'WOD5E.Tabs.Notes',
-      icon: '<i class="fas fa-sticky-note"></i>'
+      title: 'WOD5E.Tabs.Notes'
     },
     settings: {
       id: 'settings',
       group: 'primary',
-      title: 'WOD5E.Tabs.Settings',
-      icon: '<i class="fa-solid fa-gears"></i>'
+      title: 'WOD5E.Tabs.Settings'
     }
   }
 

@@ -126,6 +126,7 @@ export class VampireActorSheet extends HandlebarsApplicationMixin(WoDActor) {
     // Filters for item-specific data
     const clanFilter = actor.items.filter(item => item.type === 'clan')
     const predatorFilter = actor.items.filter(item => item.type === 'predatorType')
+    const compulsionFilter = actor.items.filter(item => item.type === 'compulsion')
     const resonanceFilter = actor.items.filter(item => item.type === 'resonance')
 
     // Prepare vampire-specific items
@@ -137,6 +138,7 @@ export class VampireActorSheet extends HandlebarsApplicationMixin(WoDActor) {
     data.predator = predatorFilter[0]
     data.generation = actorData.headers.generation
     data.blood = actorData.blood
+    data.compulsion = compulsionFilter[0]
     data.resonance = resonanceFilter[0]
     data.sire = actorData.headers.sire
 

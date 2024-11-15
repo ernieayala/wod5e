@@ -19,8 +19,12 @@
         </span>
     </div>
     <div class="flexrow header-details">
-        <span>{{clan.name}}</span>
+        <span
+            data-action="itemChat"
+            data-item-id="{{clan.id}}">{{clan.name}}</span>
         <span>&#8226;</span>
-        <span>{{predator.name}}</span>
+        <span
+            data-action="itemChat"
+            data-item-id="{{predator.id}}">{{predator.name}}</span>
     </div>
 </div>

@@ -11,6 +11,7 @@ import { GearItemSheet } from '../../item/core/gear-item-sheet.js'
 import { WeaponItemSheet } from '../../item/core/weapon-item-sheet.js'
 import { ArmorItemSheet } from '../../item/core/armor-item-sheet.js'
 // Vampire system
+import { CompulsionItemSheet } from '../../item/vtm/compulsion-item-sheet.js'
 import { ResonanceItemSheet } from '../../item/vtm/resonance-item-sheet.js'
 import { PredatorTypeItemSheet } from '../../item/vtm/predator-type-item-sheet.js'
 import { ClanItemSheet } from '../../item/vtm/clan-item-sheet.js'
@@ -98,6 +99,16 @@ export class ItemTypes extends BaseDefinitionClass {
   }
 
   // Vampire Items
+  static compulsion = {
+    label: 'TYPES.Item.compulsion',
+    img: '',
+    types: ['compulsion'],
+    sheetClass: CompulsionItemSheet,
+    restrictedActorTypes: ['vampire'],
+    excludedActorTypes: ['spc'],
+    limitOnePerActor: true
+  }
+
   static clan = {
     label: 'TYPES.Item.clan',
     img: '',

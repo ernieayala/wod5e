@@ -5,6 +5,29 @@
             {{> "systems/vtm5e/display/shared/actors/parts/header-name.hbs"}}
             {{> "systems/vtm5e/display/vtm/actors/parts/details.hbs"}}
         </div>
+        <div class="flexcol flex0 header-details-clan">
+            <div class="flexrow -gap-base">
+                <span>{{localize 'WOD5E.VTM.ClanBane'}}:</span>
+                <span
+                    data-action="itemChat"
+                    data-item-id="{{clan.id}}">
+                    {{stripHTML clan.system.bane}}
+                </span>
+            </div>
+            <div class="flexrow -gap-base">
+                <span>{{localize 'WOD5E.VTM.Compulsion'}}:</span>
+                <span
+                    data-action="itemChat"
+                    data-item-id="{{compulsion.id}}">
+                    {{compulsion.name}}
+                </span>
+                <a class="item-control item-edit"
+                    data-action="itemEdit"
+                    data-item-id="{{compulsion.id}}">
+                    <i class="fa-solid fa-edit"></i>
+                </a>
+            </div>
+        </div>
         <div class="flexrow flex0 header-elements">
             {{> "systems/vtm5e/display/vtm/actors/parts/rouse.hbs"}}
             {{> "systems/vtm5e/display/vtm/actors/parts/frenzy.hbs"}}

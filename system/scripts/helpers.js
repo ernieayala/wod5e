@@ -160,4 +160,12 @@ export const loadHelpers = async function () {
   Handlebars.registerHelper('decrement', function(value) {
     return Math.max(value - 1, 1);
   });
+
+  Handlebars.registerHelper('stripHTML', function (input) {
+    if (typeof input !== 'string') {
+      return input;
+    }
+
+    return input.replace(/<\/?[^>]+(>|$)/g, '');
+  });
 }

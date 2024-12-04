@@ -6,14 +6,18 @@
             {{#each disciplines as |discipline key|}}
                 {{#if discipline.visible}}
                     <div class="item-header">
-                        <a class="item-name system-rollable -red"
-                            data-action="roll"
-                            title="{{localize 'WOD5E.RollList.Label'}}"
-                            data-value-paths="disciplines.{{key}}.value"
-                            data-discipline="{{key}}"
-                            data-select-dialog="true">
-                            {{discipline.displayName}}
-                        </a>
+                        {{#if (and (ne key "rituals") (ne key "ceremonies"))}}
+                            <a class="item-name system-rollable -red"
+                                data-action="roll"
+                                title="{{localize 'WOD5E.RollList.Label'}}"
+                                data-value-paths="disciplines.{{key}}.value"
+                                data-discipline="{{key}}"
+                                data-select-dialog="true">
+                                {{discipline.displayName}}
+                            </a>
+                        {{else}}
+                            <span>{{discipline.displayName}}</span>
+                        {{/if}}
                         {{#if (and (ne key "rituals") (ne key "ceremonies"))}}
                             <!-- Discipline dots -->
                             <div class="resource-value"
@@ -30,14 +34,6 @@
                             </div>
                         {{/if}}
                         <div class="item-controls">
-                            <!-- Icon to show the discipline description to the chat-->
-                            <a class="item-control"
-                                data-action="disciplineChat"
-                                title="{{localize 'WOD5E.ItemsList.ShowToChat'}}"
-                                data-discipline="{{key}}">
-                                <i class="fas fa-comment-alt"></i>
-                            </a>
-                            <!-- Icon to delete the discipline (as long as it doesn't have any powers) -->
                             {{#if (eq discipline.powers.length 0)}}
                                 <a class="item-control item-delete"
                                     data-action="removeDiscipline"
@@ -50,46 +46,78 @@
                     </div>
                     <div class="items-list">
                         {{#each discipline.powers as |power key|}}
-                            <div class="item">
-                                {{#if (isNotEmpty power.system.dicepool)}}
-                                    <a class="system-rollable -red item-name"
-                                        data-action="rollItem"
-                                        data-item-uuid="{{power.uuid}}">
-                                        {{power.name}}
-                                    </a>
-                                {{else}}
-                                    <span class="item-name">
-                                        {{power.name}}
-                                    </span>
-                                {{/if}}
-
-                                <div class="item-rouse">
-                                    {{#if (eq power.system.cost 1)}}
-                                        One Rouse Check
-                                    {{else if (eq power.system.cost 2)}}
-                                        Two Rouse Checks
-                                    {{else if (eq power.system.cost 3)}}
-                                        Three Rouse Checks
+                            <div class="item-container collapsible-container">
+                                <div class="item collapsible">
+                                    {{#if (isNotEmpty power.system.dicepool)}}
+                                        <a class="system-rollable -red item-name"
+                                            data-action="rollItem"
+                                            data-item-uuid="{{power.uuid}}">
+                                            {{power.name}}
+                                        </a>
                                     {{else}}
-                                        Free
+                                        <span class="item-name">
+                                            {{power.name}}
+                                        </span>
                                     {{/if}}
+                                    <div class="item-rouse">
+                                        {{#if (eq power.system.cost 1)}}
+                                            <a class="system-rollable -red"
+                                                data-action="roll"name="rouse"
+                                                data-disable-basic-dice="true"
+                                                data-use-absolute-value="true"
+                                                data-absolute-value="1"
+                                                data-label="{{localize 'WOD5E.VTM.RousingBlood'}}"
+                                                data-increase-hunger="true"
+                                                data-difficulty="1"
+                                                title="{{localize 'WOD5E.VTM.RollRouse'}}">
+                                                One Rouse Check
+                                            </a>
+                                        {{else if (eq power.system.cost 2)}}
+                                            <a class="system-rollable -red"
+                                                data-action="roll"name="rouse"
+                                                data-disable-basic-dice="true"
+                                                data-use-absolute-value="true"
+                                                data-absolute-value="2"
+                                                data-label="{{localize 'WOD5E.VTM.RousingBlood'}}"
+                                                data-increase-hunger="true"
+                                                data-difficulty="2"
+                                                title="{{localize 'WOD5E.VTM.RollRouse'}}">
+                                                Two Rouse Checks
+                                            </a>
+                                        {{else}}
+                                            Free
+                                        {{/if}}
+                                    </div>
+                                    <div class="item-level">{{power.system.level}}</div>
+                                    <div class="item-controls">
+                                        <a class="item-control item-chat"
+                                            data-action="itemChat"
+                                            title="{{localize 'WOD5E.ItemsList.ShowToChat'}}"
+                                            data-item-id="{{power.id}}">
+                                            <i class="fas fa-comment-alt"></i>
+                                        </a>
+                                        <a class="item-control"
+                                            data-action="toggleCollapse">
+                                            <i class="fas fa-caret-down"></i>
+                                        </a>
+                                        <a class="item-control item-edit"
+                                            data-action="itemEdit"
+                                            title="{{localize 'WOD5E.Edit'}}"
+                                            data-item-id="{{power.id}}">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                        <a class="item-control item-delete"
+                                            data-action="itemDelete"
+                                            title="{{localize 'WOD5E.Delete'}}"
+                                            data-item-id="{{power.id}}">
+                                            <i class="fas fa-trash"></i>
+                                        </a>
+                                    </div>
                                 </div>
-                                <div class="item-level">{{power.system.level}}</div>
-                                <div class="item-controls">
-                                    <!-- Icon to display the power in chat -->
-                                    <a class="item-control item-chat"
-                                        data-action="itemChat"
-                                        title="{{localize 'WOD5E.ItemsList.ShowToChat'}}"
-                                        data-item-id="{{power.id}}">
-                                        <i class="fas fa-comment-alt"></i>
-                                    </a>
-                                    <!-- Icon to delete the power -->
-                                    <a class="item-control item-delete"
-                                        data-action="itemDelete"
-                                        title="{{localize 'WOD5E.Delete'}}"
-                                        data-item-id="{{power.id}}">
-                                        <i class="fas fa-trash"></i>
-                                    </a>
+                                <div class="item-description collapsible-content">
+                                    <span>
+                                        {{{cleanHtml power.system.description}}}
+                                    </span>
                                 </div>
                             </div>
                         {{/each}}

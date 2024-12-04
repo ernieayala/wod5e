@@ -168,4 +168,13 @@ export const loadHelpers = async function () {
 
     return input.replace(/<\/?[^>]+(>|$)/g, '');
   });
+
+  Handlebars.registerHelper('cleanHtml', function (text) {
+    return new Handlebars.SafeString(
+      text
+        .replace(/\\n/g, '')  // Remove escaped newlines
+        .replace(/\\"/g, '"') // Replace escaped quotes
+        .replace(/&rsquo;/g, '’') // Replace specific HTML entities
+    );
+  });
 }

@@ -228,6 +228,7 @@ export class GroupActorSheet extends HandlebarsApplicationMixin(foundry.applicat
     }, {
       // Containers for features
       background: [],
+      backgroundFlaw: [],
       merit: [],
       flaw: [],
       boon: []

@@ -10,42 +10,53 @@
                 {{#each features as |feature key|}}
                     {{#each feature as |item key|}}
                         {{#if (or (eq item.system.featuretype "merit") (eq item.system.featuretype "flaw"))}}
-                            <div class="item{{#if (eq item.system.featuretype "flaw")}} -flaw{{/if}}"
-                                data-drag="true"
-                                data-item-id="{{item.id}}"
-                                data-document-uuid="{{item.uuid}}"
-                                data-type="Item">
-                                <div class="item-name">
-                                    <span>{{item.name}}</span>
+                            <div class="item-container collapsible-container">
+                                <div class="item{{#if (eq item.system.featuretype "flaw")}} -flaw{{/if}} collapsible"
+                                    data-drag="true"
+                                    data-item-id="{{item.id}}"
+                                    data-document-uuid="{{item.uuid}}"
+                                    data-type="Item">
+                                    <div class="item-name">
+                                        <span>{{item.name}}</span>
+                                    </div>
+                                    <div class="resource-value"
+                                        data-value="{{item.system.points}}"
+                                        data-name="items.{{item._id}}">
+                                        {{#numLoop item.system.points}}
+                                            <span class="resource-value-step"
+                                                data-action="dotCounterChange"
+                                                data-index="{{this}}"></span>
+                                        {{/numLoop}}
+                                    </div>
+                                    <div class="item-controls">
+                                        <a class="item-control item-chat"
+                                            data-action="itemChat"
+                                            data-item-id="{{item._id}}"
+                                            title="{{localize 'WOD5E.ItemsList.ShowToChat'}}">
+                                            <i class="fas fa-comment-alt"></i>
+                                        </a>
+                                        <a class="item-control"
+                                            data-action="toggleCollapse">
+                                            <i class="fas fa-caret-down"></i>
+                                        </a>
+                                        <a class="item-control item-edit"
+                                            data-action="itemEdit"
+                                            data-item-id="{{item._id}}"
+                                            title="{{localize 'WOD5E.Edit'}}">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                        <a class="item-control item-delete"
+                                            data-action="itemDelete"
+                                            data-item-id="{{item._id}}"
+                                            title="{{localize 'WOD5E.Delete'}}">
+                                            <i class="fas fa-trash"></i>
+                                        </a>
+                                    </div>
                                 </div>
-                                <div class="resource-value"
-                                    data-value="{{item.system.points}}"
-                                    data-name="items.{{item._id}}">
-                                    {{#numLoop item.system.points}}
-                                        <span class="resource-value-step"
-                                            data-action="dotCounterChange"
-                                            data-index="{{this}}"></span>
-                                    {{/numLoop}}
-                                </div>
-                                <div class="item-controls">
-                                    <a class="item-control item-chat"
-                                        data-action="itemChat"
-                                        data-item-id="{{item._id}}"
-                                        title="{{localize 'WOD5E.ItemsList.ShowToChat'}}">
-                                        <i class="fas fa-comment-alt"></i>
-                                    </a>
-                                    <a class="item-control item-edit"
-                                        data-action="itemEdit"
-                                        data-item-id="{{item._id}}"
-                                        title="{{localize 'WOD5E.Edit'}}">
-                                        <i class="fas fa-edit"></i>
-                                    </a>
-                                    <a class="item-control item-delete"
-                                        data-action="itemDelete"
-                                        data-item-id="{{item._id}}"
-                                        title="{{localize 'WOD5E.Delete'}}">
-                                        <i class="fas fa-trash"></i>
-                                    </a>
+                                <div class="item-description collapsible-content">
+                                    <span>
+                                        {{{cleanHtml item.system.description}}}
+                                    </span>
                                 </div>
                             </div>
                         {{/if}}
@@ -62,43 +73,54 @@
             <div class="items-list">
                 {{#each features as |feature key|}}
                     {{#each feature as |item key|}}
-                        {{#if (eq item.system.featuretype "background")}}
-                            <div class="item"
-                                data-drag="true"
-                                data-item-id="{{item.id}}"
-                                data-document-uuid="{{item.uuid}}"
-                                data-type="Item">
-                                <div class="item-name">
-                                    <span>{{item.name}}</span>
+                        {{#if (or (eq item.system.featuretype "background") (eq item.system.featuretype "backgroundFlaw"))}}
+                            <div class="item-container collapsible-container">
+                                <div class="item{{#if (eq item.system.featuretype "backgroundFlaw")}} -flaw{{/if}} collapsible"
+                                    data-drag="true"
+                                    data-item-id="{{item.id}}"
+                                    data-document-uuid="{{item.uuid}}"
+                                    data-type="Item">
+                                    <div class="item-name">
+                                        <span>{{item.name}}</span>
+                                    </div>
+                                    <div class="resource-value"
+                                        data-value="{{item.system.points}}"
+                                        data-name="items.{{item._id}}">
+                                        {{#numLoop item.system.points}}
+                                            <span class="resource-value-step"
+                                                data-action="dotCounterChange"
+                                                data-index="{{this}}"></span>
+                                        {{/numLoop}}
+                                    </div>
+                                    <div class="item-controls">
+                                        <a class="item-control item-chat"
+                                            data-action="itemChat"
+                                            data-item-id="{{item._id}}"
+                                            title="{{localize 'WOD5E.ItemsList.ShowToChat'}}">
+                                            <i class="fas fa-comment-alt"></i>
+                                        </a>
+                                        <a class="item-control"
+                                            data-action="toggleCollapse">
+                                            <i class="fas fa-caret-down"></i>
+                                        </a>
+                                        <a class="item-control item-edit"
+                                            data-action="itemEdit"
+                                            data-item-id="{{item._id}}"
+                                            title="{{localize 'WOD5E.Edit'}}">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                        <a class="item-control item-delete"
+                                            data-action="itemDelete"
+                                            data-item-id="{{item._id}}"
+                                            title="{{localize 'WOD5E.Delete'}}">
+                                            <i class="fas fa-trash"></i>
+                                        </a>
+                                    </div>
                                 </div>
-                                <div class="resource-value"
-                                    data-value="{{item.system.points}}"
-                                    data-name="items.{{item._id}}">
-                                    {{#numLoop item.system.points}}
-                                        <span class="resource-value-step"
-                                            data-action="dotCounterChange"
-                                            data-index="{{this}}"></span>
-                                    {{/numLoop}}
-                                </div>
-                                <div class="item-controls">
-                                    <a class="item-control item-chat"
-                                        data-action="itemChat"
-                                        data-item-id="{{item._id}}"
-                                        title="{{localize 'WOD5E.ItemsList.ShowToChat'}}">
-                                        <i class="fas fa-comment-alt"></i>
-                                    </a>
-                                    <a class="item-control item-edit"
-                                        data-action="itemEdit"
-                                        data-item-id="{{item._id}}"
-                                        title="{{localize 'WOD5E.Edit'}}">
-                                        <i class="fas fa-edit"></i>
-                                    </a>
-                                    <a class="item-control item-delete"
-                                        data-action="itemDelete"
-                                        data-item-id="{{item._id}}"
-                                        title="{{localize 'WOD5E.Delete'}}">
-                                        <i class="fas fa-trash"></i>
-                                    </a>
+                                <div class="item-description collapsible-content">
+                                    <span>
+                                        {{{cleanHtml item.system.description}}}
+                                    </span>
                                 </div>
                             </div>
                         {{/if}}

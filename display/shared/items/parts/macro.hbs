@@ -1,10 +1,17 @@
-<section class="tab {{tab.cssClass}}" data-tab="{{tab.id}}" data-group="{{tab.group}}">
-    <div>
-        {{localize "WOD5E.Macro.MacroNote"}}
+<section class="tab {{tab.cssClass}}"
+    data-tab="{{tab.id}}"
+    data-group="{{tab.group}}">
+    <div class="form-group">
+        <label>{{localize "WOD5E.Macro.MacroNote"}}</label>
     </div>
     <hr>
-    <div class="grid grid-2col">
-        <b>{{localize "WOD5E.Macro.MacroID"}}</b>
-        <input name="system.macroid" type="text" value="{{macroid}}"/>
+    <div class="form-group">
+        <label>{{localize "WOD5E.Macro.MacroID"}}</label>
+        <div class="form-fields">
+            <input
+                name="system.macroid"
+                type="text"
+                value="{{macroid}}"/>
+        </div>
     </div>
 </section>

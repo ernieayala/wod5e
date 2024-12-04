@@ -1,13 +1,24 @@
-<div class="modifier">
-    <div class="big-header"><input id="modifierSource" type="text" value="{{bonus.source}}" placeholder="{{localize 'WOD5E.Modifier.NewSpecialty'}}"/></div>
-    <div class="grid grid-2col flex-center">
-        <div class="flexcol flex-center">
-            <b>{{localize "WOD5E.Value"}}</b>
-            <input class="input-value" id="modifierValue" type="number" value="{{bonus.value}}"/>
+<div class="modifier flexcol -gap-sm">
+    <div class="field-header">
+        <input id="modifierSource"
+            type="text"
+            value="{{bonus.source}}"
+            placeholder="{{localize 'WOD5E.Modifier.NewSpecialty'}}"/>
+    </div>
+    <div class="flexcol -gap-base">
+        <div class="form-group">
+            <label>{{localize "WOD5E.Value"}}</label>
+            <input class="input-value"
+                id="modifierValue"
+                type="number"
+                value="{{bonus.value}}"/>
         </div>
-        <div class="flexcol flex-center">
-            <b>{{localize "WOD5E.Modifier.Selectors"}}</b>
-            <input type="text" id="modifier" value="{{splitArray bonus.paths}}"/>
+        <div class="form-group">
+            <label>{{localize "WOD5E.Modifier.Selectors"}}</label>
+            <input
+                type="text"
+                id="modifier"
+                value="{{splitArray bonus.paths}}"/>
         </div>
     </div>
     <hr>

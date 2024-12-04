@@ -13,6 +13,10 @@ export class Features extends BaseDefinitionClass {
     label: 'WOD5E.ItemsList.Background'
   }
 
+  static backgroundFlaw = {
+    label: 'WOD5E.ItemsList.BackgroundFlaw'
+  }
+
   static merit = {
     label: 'WOD5E.ItemsList.Merit'
   }

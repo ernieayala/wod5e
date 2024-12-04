@@ -88,9 +88,9 @@ gulp.task('watch-localization', function () {
 
 // Default task
 gulp.task('default', gulp.series(
-  gulp.parallel('less', 'sortEnglishKeys'),
+  gulp.parallel('sortEnglishKeys'),
   'localize',
-  gulp.parallel('watch-localization', 'watch-styling')
+  gulp.parallel('watch-localization')
 ))
 
 // Create directory if it doesn't exist

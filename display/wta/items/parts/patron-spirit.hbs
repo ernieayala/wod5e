@@ -1,31 +1,52 @@
-<section class="tab {{tab.cssClass}}" data-tab="{{tab.id}}" data-group="{{tab.group}}">
-    <div class="flex-group-center flexrow">
-        <div class="field-header">
+<section class="tab {{tab.cssClass}}"
+    data-tab="{{tab.id}}"
+    data-group="{{tab.group}}">
+    <div class="form-group">
+        <label>
             {{localize 'WOD5E.WTA.PatronSpirit'}}
+        </label>
+        <div class="form-fields">
+            <input
+                name="system.patronSpirit.name"
+                type="text"
+                value="{{patronSpirit.name}}"/>
         </div>
-        <div>
-            <input name="system.patronSpirit.name" type="text" value="{{patronSpirit.name}}"/>
+    </div>
+
+    <div class="form-group stacked">
+        <label>{{localize 'WOD5E.Tabs.Description'}}</label>
+        <div class="form-fields">
+            <prose-mirror
+                name="system.patronSpirit.description"
+                value="{{patronSpirit.description}}"
+                toggled="true"
+                compact="true">
+                {{{enrichedPatronSpiritDescription}}}
+            </prose-mirror>
         </div>
     </div>
-
-    <div class="field-header flex-group-center">
-        {{localize 'WOD5E.Tabs.Description'}}
+    <div class="form-group stacked">
+        <label>{{localize 'WOD5E.WTA.Favor'}}</label>
+        <div class="form-fields">
+            <prose-mirror
+                name="system.patronSpirit.favor"
+                value="{{patronSpirit.favor}}"
+                toggled="true"
+                compact="true">
+                {{{enrichedFavor}}}
+            </prose-mirror>
+        </div>
     </div>
-    <prose-mirror name="system.patronSpirit.description" value="{{patronSpirit.description}}" toggled="true" compact="true">
-        {{{enrichedPatronSpiritDescription}}}
-    </prose-mirror>
-
-    <div class="field-header flex-group-center">
-        {{localize 'WOD5E.WTA.Favor'}}
+    <div class="form-group stacked">
+        <label>{{localize 'WOD5E.WTA.Ban'}}</label>
+        <div class="form-fields">
+            <prose-mirror
+                name="system.patronSpirit.ban"
+                value="{{patronSpirit.ban}}"
+                toggled="true"
+                compact="true">
+                {{{enrichedBan}}}
+            </prose-mirror>
+        </div>
     </div>
-    <prose-mirror name="system.patronSpirit.favor" value="{{patronSpirit.favor}}" toggled="true" compact="true">
-        {{{enrichedFavor}}}
-    </prose-mirror>
-
-    <div class="field-header flex-group-center">
-        {{localize 'WOD5E.WTA.Ban'}}
-    </div>
-    <prose-mirror name="system.patronSpirit.ban" value="{{patronSpirit.ban}}" toggled="true" compact="true">
-        {{{enrichedBan}}}
-    </prose-mirror>
 </section>

@@ -1,38 +1,64 @@
-<div>
-    <div class="resource-label field-header flex-center">
-        {{localize "WOD5E.SPC.ExceptionalDicePools"}}
-        <a class="edit-exceptional-pools" data-action="editExceptionalPools" title="Edit exceptional pools">
+<div class="flexcol -gap-base">
+    <div class="subtle-header">
+        <div class="field-header">
+            {{localize "WOD5E.SPC.ExceptionalDicePools"}}
+        </div>
+        <a class="edit-skill"
+            data-action="editExceptionalPools"
+            title="Edit exceptional pools">
             <i class="fas fa-edit"></i>
         </a>
     </div>
-    <div class="exceptional-pools-list{{#unless locked}} flexrow{{else}} resource stat-resource-background{{/unless}}">
-        <!-- Iterate through each of the skill lists -->
-        {{#if locked}}
-            {{#each exceptionalPools as |exceptionalskill key|}}
-                {{#if exceptionalskill.active}}
-                    <a class="exceptional-pool resource-label rollable{{#if ../locked}} locked{{/if}}" data-action="roll" data-value-paths="exceptionaldicepools.{{key}}.value"
-                            data-select-dialog="false" data-label="{{exceptionalskill.displayName}}" {{#if ../noAdvancedDice}} data-disable-advanced-dice="true"{{/if}}>
-                        <b>{{exceptionalskill.displayName}}</b>
-                        <span class="exceptional-value">{{exceptionalskill.value}}</span>
-                    </a>
-                {{/if}}
-            {{/each}}
-        {{else}}
-            {{#each exceptionalPools as |exceptionalskill key|}}
-                {{#if exceptionalskill.active}}
-                    <div class="spc-item-header exceptional-pool">
-                        <div class="resource-label rollable" data-action="roll" data-value-paths="exceptionaldicepools.{{key}}.value" data-select-dialog="false"
-                            data-label="{{exceptionalskill.displayName}}" {{#if ../noAdvancedDice}} data-disable-advanced-dice="true"{{/if}}>
-                            {{exceptionalskill.displayName}}
+    <div class="flexrow stats-content">
+        <div class="stats-list skills">
+            {{#if locked}}
+                {{#each exceptionalPools as |exceptionalskill key|}}
+                    {{#if exceptionalskill.active}}
+                        <div class="flexrow skill rollable">
+                            <label class="resource-label">
+                                <div class="rollable"
+                                    data-action="roll"
+                                    data-value-paths="exceptionaldicepools.{{key}}.value"
+                                    data-select-dialog="false"
+                                    data-label="{{exceptionalskill.displayName}}"
+                                    {{#if ../noAdvancedDice}} data-disable-advanced-dice="true"{{/if}}>
+                                    {{exceptionalskill.displayName}}
+                                </div>
+                            </label>
+                            <div class="resource-value"
+                                data-value="{{exceptionalskill.value}}">
+                                {{#numLoop exceptionalskill.value}}
+                                    <span class="resource-value-step"
+                                        data-index="{{this}}"></span>
+                                {{/numLoop}}
+                            </div>
                         </div>
-                        <div class="resource-value">
-                            <input type="number" name="system.exceptionaldicepools.{{key}}.value"
-                            value="{{exceptionalskill.value}}" data-name="system.exceptionaldicepools.{{key}}.value"/>
+                    {{/if}}
+                {{/each}}
+            {{else}}
+                {{#each exceptionalPools as |exceptionalskill key|}}
+                    {{#if exceptionalskill.active}}
+                        <div class="flexrow skill rollable">
+                            <label class="resource-label">
+                                <div class="rollable"
+                                    data-action="roll"
+                                    data-value-paths="exceptionaldicepools.{{key}}.value"
+                                    data-select-dialog="false"
+                                    data-label="{{exceptionalskill.displayName}}"
+                                    {{#if ../noAdvancedDice}} data-disable-advanced-dice="true"{{/if}}>
+                                    {{exceptionalskill.displayName}}
+                                </div>
+                            </label>
+                            <input class="resource-value"
+                                type="number"
+                                name="system.exceptionaldicepools.{{key}}.value"
+                                value="{{exceptionalskill.value}}"
+                                data-name="system.exceptionaldicepools.{{key}}.value"/>
                         </div>
-                    </div>
-                {{/if}}
-            {{/each}}
-        {{/if}}
+                    {{/if}}
+                {{/each}}
+            {{/if}}
+        </div>
     </div>
 </div>
 

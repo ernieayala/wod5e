@@ -218,6 +218,7 @@ export class WoDActor extends HandlebarsApplicationMixin(foundry.applications.sh
     }, {
       // Containers for features
       background: [],
+      backgroundFlaw: [],
       merit: [],
       flaw: [],
       boon: []

@@ -17,7 +17,7 @@ const { HandlebarsApplicationMixin } = foundry.applications.api
  */
 export class GhoulActorSheet extends HandlebarsApplicationMixin(WoDActor) {
   static DEFAULT_OPTIONS = {
-    classes: ['wod5e', 'actor', 'sheet', 'vampire'],
+    classes: ['wod5e', 'actor', 'sheet', 'vampire', 'ghoul'],
     actions: {
       addDiscipline: _onAddDiscipline,
       removeDiscipline: _onRemoveDiscipline,
@@ -71,50 +71,42 @@ export class GhoulActorSheet extends HandlebarsApplicationMixin(WoDActor) {
     stats: {
       id: 'stats',
       group: 'primary',
-      title: 'WOD5E.Tabs.Stats',
-      icon: '<i class="fa-regular fa-chart-line"></i>'
-    },
-    experience: {
-      id: 'experience',
-      group: 'primary',
-      title: 'WOD5E.Tabs.Experience',
-      icon: '<i class="fa-solid fa-file-contract"></i>'
+      title: 'WOD5E.Tabs.Stats'
     },
     disciplines: {
       id: 'disciplines',
       group: 'primary',
-      title: 'WOD5E.VTM.Disciplines',
-      icon: '<span class="wod5e-symbol">b</span>'
+      title: 'WOD5E.VTM.Disciplines'
     },
     features: {
       id: 'features',
       group: 'primary',
-      title: 'WOD5E.Tabs.Features',
-      icon: '<i class="fas fa-gem"></i>'
-    },
-    equipment: {
-      id: 'equipment',
-      group: 'primary',
-      title: 'WOD5E.Tabs.Equipment',
-      icon: '<i class="fa-solid fa-toolbox"></i>'
+      title: 'WOD5E.Tabs.MeritsFlaws'
     },
     biography: {
       id: 'biography',
       group: 'primary',
-      title: 'WOD5E.Tabs.Biography',
-      icon: '<i class="fas fa-id-card"></i>'
+      title: 'WOD5E.Tabs.Biography'
+    },
+    equipment: {
+      id: 'equipment',
+      group: 'primary',
+      title: 'WOD5E.Tabs.Equipment'
+    },
+    experience: {
+      id: 'experience',
+      group: 'primary',
+      title: 'WOD5E.Tabs.Experience'
     },
     notepad: {
       id: 'notepad',
       group: 'primary',
-      title: 'WOD5E.Tabs.Notes',
-      icon: '<i class="fas fa-sticky-note"></i>'
+      title: 'WOD5E.Tabs.Notes'
     },
     settings: {
       id: 'settings',
       group: 'primary',
-      title: 'WOD5E.Tabs.Settings',
-      icon: '<i class="fa-solid fa-gears"></i>'
+      title: 'WOD5E.Tabs.Settings'
     }
   }
 

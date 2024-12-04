@@ -152,4 +152,29 @@ export const loadHelpers = async function () {
     }
     return edges[key]
   })
+
+  Handlebars.registerHelper('json', function(context) {
+    return JSON.stringify(context, null, 2); // Pretty-prints with 2-space indentation
+  })
+
+  Handlebars.registerHelper('decrement', function(value) {
+    return Math.max(value - 1, 1);
+  });
+
+  Handlebars.registerHelper('stripHTML', function (input) {
+    if (typeof input !== 'string') {
+      return input;
+    }
+
+    return input.replace(/<\/?[^>]+(>|$)/g, '');
+  });
+
+  Handlebars.registerHelper('cleanHtml', function (text) {
+    return new Handlebars.SafeString(
+      text
+        .replace(/\\n/g, '')  // Remove escaped newlines
+        .replace(/\\"/g, '"') // Replace escaped quotes
+        .replace(/&rsquo;/g, '’') // Replace specific HTML entities
+    );
+  });
 }

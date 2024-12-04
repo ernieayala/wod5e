@@ -29,7 +29,7 @@ export const willpowerReroll = async (roll) => {
   const template = `
     <form>
         <div class="window-content">
-            <label><b>Select dice to reroll (Max 3)</b></label>
+            <label>Select dice to reroll (Max 3)</label>
             <hr>
             <span class="dice-tooltip">
               <div class="dice-rolls flexrow willpower-reroll">

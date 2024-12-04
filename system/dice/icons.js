@@ -6,17 +6,17 @@ const hunterDiceLocation = 'systems/vtm5e/assets/icons/dice/hunter/'
 
 // Baseline dice variables and icon filenames
 const normalDiceFaces = {
-  success: 'success.png',
-  failure: 'failure.png',
-  critical: 'critical.png'
+  success: 'standard-success.png',
+  failure: 'standard-fail.png',
+  critical: 'standard-critical.png'
 }
 
 // Splat-specific dice variables
 const hungerDiceFaces = {
   success: 'hunger-success.png',
-  failure: 'hunger-failure.png',
+  failure: 'hunger-fail.png',
   critical: 'hunger-critical.png',
-  bestial: 'bestial-failure.png'
+  bestial: 'hunger-1-roll.png'
 }
 const rageDiceFaces = {
   success: 'rage-success.png',

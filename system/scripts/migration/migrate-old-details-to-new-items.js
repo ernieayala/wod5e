@@ -65,6 +65,28 @@ export const MigrateOldDetailsToNewItems = async function () {
       }
 
       /*
+      * COMPULSION TYPE ITEM
+      * Only gets created if the actor doesn't already have a compulsion item AND has a compulsion set in the old field
+      */
+      if (actor.items.filter(item => item.type === 'compulsion').length === 0 && actorData?.headers?.compulsion) {
+        const name = actorData?.blood?.compulsion || game.i18n.format('WOD5E.NewString', {
+          string: 'WOD5E.VTM.Compulsion'
+        })
+        const dataItemId = `compulsion-${formatDataItemId(name)}`
+
+        const compulsionData = {
+          name,
+          type: 'compulsion',
+          flags: {
+            vtm5e: {
+              dataItemId
+            }
+          }
+        }
+        itemsToCreate.push(compulsionData)
+      }
+
+      /*
       * RESONANCE ITEM
       * Only gets created if the actor doesn't already have a resonance item AND has a resonance set in the old field
       */

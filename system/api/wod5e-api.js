@@ -121,6 +121,7 @@ export class wod5eAPI {
 
     // Render selecting a skill/attribute to roll
     const dialogTemplate = 'systems/vtm5e/display/ui/select-dice-dialog.hbs'
+    const shiftPressed = window.event && window.event.shiftKey;
     const dialogData = {
       system: actor.system.gamesystem,
       skill,
@@ -132,10 +133,13 @@ export class wod5eAPI {
       disciplineOptions,
       renownOptions,
       hungerValue: actor.system.gamesystem === 'vampire' && actor.type !== 'ghoul' ? actor.system.hunger.value : 0,
-      actorType: actor.type
+      actorType: actor.type,
+      shiftPressed
     }
     // Render the template
     const content = await renderTemplate(dialogTemplate, dialogData)
+
+    let dialogClass = dialogData.attribute ? 'attribute' : (dialogData.skill ? 'skill' : '');
 
     // Render the dialog window to select which skill/attribute combo to use
     new Dialog(
@@ -262,7 +266,7 @@ export class wod5eAPI {
         default: 'confirm'
       },
       {
-        classes: ['wod5e', actor.system.gamesystem, 'dialog']
+        classes: ['wod5e', dialogClass, actor.system.gamesystem, 'dialog']
       }
     ).render(true)
   }

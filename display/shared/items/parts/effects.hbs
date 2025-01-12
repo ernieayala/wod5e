@@ -3,7 +3,7 @@
     data-group="{{tab.group}}">
     <h3 class="flexrow -gap-sm form-header">
         <span>
-            Flat Modifiers
+            {{localize 'WOD5E.Modifier.FlatModifier'}}
         </span>
         <a class="flex0"
             data-action="addEffect"
@@ -15,7 +15,7 @@
         {{#each effects.flatModifier as |effect key|}}
             <div class="flexcol effect" data-effect-id="{{effect.id}}">
                 <div class="form-group">
-                    <label class="label">Keys</label>
+                    <label class="label">{{localize 'WOD5E.Modifier.FlatModifierSource'}}</label>
                     <div class="form-fields">
                         <input class="effectKeys"
                             type="text"
@@ -23,7 +23,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="label">Value</label>
+                    <label class="label">{{localize 'WOD5E.Modifier.Mode'}}</label>
                     <div class="form-fields">
                         <input
                             name="system.effects.{{effect.id}}.intValue"
@@ -54,7 +54,7 @@
                 <button
                     data-action="removeEffect"
                     data-effect-id="{{effect.id}}">
-                    Remove Effect
+                    {{localize 'WOD5E.Modifier.RemoveEffect'}}
                 </button>
             </div>
         {{/each}}

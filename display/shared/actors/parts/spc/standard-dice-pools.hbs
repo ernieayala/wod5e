@@ -1,56 +1,89 @@
-<div>
-    <div class="resource-label field-header flex-center">
-        {{localize "WOD5E.SPC.StandardDicePools"}}
+<div class="flexcol -gap-base">
+    <div class="subtle-header">
+        <div class="field-header">
+            {{localize "WOD5E.SPC.StandardDicePools"}}
+        </div>
     </div>
-    <div class="standard-pools-list grid grid-3col flex-group-center">
-        <!-- Physical Dicepool -->
-        <div class="resource-content flexcol flex-center flex-between">
-            <label for="Physical" class="resource-label rollable" data-action="roll" data-use-absolute-value="true"
-                data-absolute-value="{{standardPools.physical.value}}" data-label="{{localize 'WOD5E.SPC.Physical'}}"
-                {{#if noAdvancedDice}} data-disable-advanced-dice="true"{{/if}} data-selectors="physical">
+    <div class="stats-list attributes">
+        <div class="flexrow attribute">
+            <label class="resource-label rollable"
+                for="Physical"
+                data-action="roll"
+                data-use-absolute-value="true"
+                data-absolute-value="{{standardPools.physical.value}}"
+                data-label="{{localize 'WOD5E.SPC.Physical'}}"
+                data-selectors="physical"
+                {{#if noAdvancedDice}}data-disable-advanced-dice="true"{{/if}}>
                 {{localize 'WOD5E.SPC.Physical'}}
-                <i class="fa-solid fa-dice-d10"></i>
             </label>
             {{#if locked}}
-                <div class="resource stat-resource-background">
-                    {{standardPools.physical.value}}
+                <div class="resource-value"
+                    data-value="{{standardPools.physical.value}}">
+                    {{#numLoop standardPools.physical.value}}
+                        <span class="resource-value-step"
+                            data-index="{{this}}"></span>
+                    {{/numLoop}}
                 </div>
             {{else}}
-                <input type="number" name="system.standarddicepools.physical.value" value="{{standardPools.physical.value}}" data-dtype="Number"/>
+                <input class="resource-value"
+                    type="number"
+                    name="system.standarddicepools.physical.value"
+                    value="{{standardPools.physical.value}}"
+                    data-dtype="Number"/>
             {{/if}}
         </div>
-
-        <!-- Social Dicepool -->
-        <div class="resource-content flexcol flex-center flex-between">
-            <label for="Social" class="resource-label rollable" data-action="roll" data-use-absolute-value="true"
-                data-absolute-value="{{standardPools.social.value}}" data-label="{{localize 'WOD5E.SPC.Social'}}"
-                {{#if noAdvancedDice}} data-disable-advanced-dice="true"{{/if}} data-selectors="social">
+        <div class="flexrow attribute">
+            <label class="resource-label rollable"
+                for="Social"
+                data-action="roll"
+                data-use-absolute-value="true"
+                data-absolute-value="{{standardPools.social.value}}"
+                data-label="{{localize 'WOD5E.SPC.Social'}}"
+                data-selectors="social"
+                {{#if noAdvancedDice}} data-disable-advanced-dice="true"{{/if}}>
                 {{localize 'WOD5E.SPC.Social'}}
-                <i class="fa-solid fa-dice-d10"></i>
             </label>
             {{#if locked}}
-                <div class="resource stat-resource-background">
-                    {{standardPools.social.value}}
+                <div class="resource-value"
+                    data-value="{{standardPools.social.value}}">
+                    {{#numLoop standardPools.social.value}}
+                        <span class="resource-value-step"
+                            data-index="{{this}}"></span>
+                    {{/numLoop}}
                 </div>
             {{else}}
-                <input type="number" name="system.standarddicepools.social.value" value="{{standardPools.social.value}}" data-dtype="Number"/>
+                <input class="resource-value"
+                    type="number"
+                    name="system.standarddicepools.social.value"
+                    value="{{standardPools.social.value}}"
+                    data-dtype="Number"/>
             {{/if}}
         </div>
-
-        <!-- Mental Dicepool -->
-        <div class="resource-content flexcol flex-center flex-between">
-            <label for="Mental" class="resource-label rollable" data-action="roll" data-use-absolute-value="true"
-                data-absolute-value="{{standardPools.mental.value}}" data-label="{{localize 'WOD5E.SPC.Mental'}}"
-                {{#if noAdvancedDice}} data-disable-advanced-dice="true"{{/if}} data-selectors="mental">
+        <div class="flexrow attribute">
+            <label class="resource-label rollable"
+                for="Mental"
+                data-action="roll"
+                data-use-absolute-value="true"
+                data-absolute-value="{{standardPools.mental.value}}"
+                data-label="{{localize 'WOD5E.SPC.Mental'}}"
+                data-selectors="mental"
+                {{#if noAdvancedDice}} data-disable-advanced-dice="true"{{/if}}>
                 {{localize 'WOD5E.SPC.Mental'}}
-                <i class="fa-solid fa-dice-d10"></i>
             </label>
             {{#if locked}}
-                <div class="resource stat-resource-background">
-                    {{standardPools.mental.value}}
+                <div class="resource-value"
+                    data-value="{{standardPools.mental.value}}">
+                    {{#numLoop standardPools.mental.value}}
+                        <span class="resource-value-step"
+                            data-index="{{this}}"></span>
+                    {{/numLoop}}
                 </div>
             {{else}}
-                <input type="number" name="system.standarddicepools.mental.value" value="{{standardPools.mental.value}}" data-dtype="Number"/>
+                <input class="resource-value"
+                    type="number"
+                    name="system.standarddicepools.mental.value"
+                    value="{{standardPools.mental.value}}"
+                    data-dtype="Number"/>
             {{/if}}
         </div>
     </div>

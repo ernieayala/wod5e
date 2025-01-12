@@ -228,11 +228,9 @@ export const _onItemDelete = async function (event, target) {
   // Define the template to be used
   const template = `
   <form>
-      <div class="form-group">
-          <label>${game.i18n.format('WOD5E.ConfirmDeleteDescription', {
-            string: item.name
-          })}</label>
-      </div>
+        <label>${game.i18n.format('WOD5E.ConfirmDeleteDescription', {
+          string: item.name
+        })}</label>
   </form>`
 
   // Define the buttons and push them to the buttons variable

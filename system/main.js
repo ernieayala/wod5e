@@ -182,6 +182,15 @@ Hooks.once('ready', async function () {
       _updateCSSVariable(settingId, cssVariable, settingValue)
     })
   })
+
+  document.addEventListener('keydown', function(event) {
+  // Check if the event target is a text input field
+  if (event.target.tagName === 'INPUT' && event.target.type === 'text' && event.key === 'Enter') {
+      event.preventDefault(); // Prevent form submission or triggering other elements
+      event.target.blur(); // Temporarily removes focus
+      event.target.focus(); // Refocuses to make Enter act like a normal keystroke
+    }
+  });
 })
 
 Hooks.once('setup', () => {
@@ -213,6 +222,12 @@ Hooks.on('canvasReady', (canvas) => {
 
 // Display the willpower reroll option in the chat when messages are right clicked
 Hooks.on('getChatLogEntryContext', (html, options) => {
+  // Remove the "SIDEBAR.Delete" option
+  const deleteOptionIndex = options.findIndex(option => option.name === "SIDEBAR.Delete");
+  if (deleteOptionIndex !== -1) {
+    options.splice(deleteOptionIndex, 1); // Remove it from the options array
+  }
+
   options.push({
     name: game.i18n.localize('WOD5E.Chat.WillpowerReroll'),
     icon: '<i class="fas fa-redo"></i>',

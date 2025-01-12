@@ -671,7 +671,8 @@
         },
         "headers":{
           "sire":"",
-          "generation":""
+          "generation":"",
+          "compulsion": ""
         },
         "blood": {
           "potency": 0,
@@ -825,7 +826,7 @@
   "Item": {
     "types": [
       "feature", "customRoll", "armor", "weapon", "gear", "trait", "condition",
-      "power", "boon", "clan", "predatorType", "resonance",
+      "power", "boon", "clan", "predatorType", "resonance", "compulsion",
       "perk", "edgepool", "creed", "drive",
       "gift", "tribe", "auspice", "talisman"
     ],
@@ -893,6 +894,10 @@
       "templates": ["base"],
       "gamesystem": "vampire",
       "dyscrasia": ""
+    },
+    "compulsion": {
+      "templates": ["base"],
+      "gamesystem": "vampire"
     },
     "power": {
       "templates": ["base"],

@@ -222,6 +222,12 @@ Hooks.on('canvasReady', (canvas) => {
 
 // Display the willpower reroll option in the chat when messages are right clicked
 Hooks.on('getChatLogEntryContext', (html, options) => {
+  // Remove the "SIDEBAR.Delete" option
+  const deleteOptionIndex = options.findIndex(option => option.name === "SIDEBAR.Delete");
+  if (deleteOptionIndex !== -1) {
+    options.splice(deleteOptionIndex, 1); // Remove it from the options array
+  }
+
   options.push({
     name: game.i18n.localize('WOD5E.Chat.WillpowerReroll'),
     icon: '<i class="fas fa-redo"></i>',
